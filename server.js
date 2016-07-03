@@ -44,5 +44,6 @@ app.post('/login', function(req, res) {
             res.send({result:logResult});
         });
     */
+    // not checking user
     res.send({result:"success"});
 });
