@@ -27,11 +27,15 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
+app.post('/', function(req, res) {
+    console.log('New connection via post ' + req.url);
+});
+         
 app.post('/login', function(req, res) {
     console.log('Checking login of ' + req.body["username"] + "/" + req.body["password"]);
     var username = req.body["username"];
     var password = req.body["password"];
-    db.collection('Users').find({username:username, password:password}).toArray(function(err, result) 
+    /*db.collection('Users').find({username:username, password:password}).toArray(function(err, result) 
         {
             if(err) throw err;
             var logResult = 0;
@@ -39,4 +43,6 @@ app.post('/login', function(req, res) {
             else logResult = "failed";
             res.send({result:logResult});
         });
+    */
+    res.send({result:"success"});
 });
